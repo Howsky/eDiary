@@ -1,0 +1,35 @@
+<div class="navbar-mobile" (clickOutside)="onClickedOutside($event)" [clickOutsideEvents]="'click,touchstart'">
+
+  <div class="mobileNav-burger" (click)="onBurgerClick()">
+    <button class="btn mobileNav-burgerBtn">
+      <svg class="icon icon-settings">
+        <use xlink:href="assets/icons/newicons2.svg#icon-burger"></use>
+      </svg>
+    </button>
+  </div>
+
+  <div *ngIf="mobileNavMenuVis" class="mobileNav">
+
+    <div class="mobileNav-menu">
+
+      <ul class="mobileNav-list">
+        <li class="mobileNav-item mobileNav-item-user" (click)="onNavigate(['/my-profile'])">
+          <img [src]="user.avatar || av" alt="" class="mobileNav-photo av">
+          <span class="mobileNav-name ">{{user.nickname}}</span>
+        </li>
+        <li class="mobileNav-item">
+          <a class="mobileNav-link" (click)="onNavigate(['/app-settings'])">App Settings</a>
+        </li>
+        <li class="mobileNav-item">
+          <a class="mobileNav-link" (click)="onNavigate(['/privacy-settings'])">Privacy Settings</a>
+        </li>
+        <li class="mobileNav-item">
+          <a class="mobileNav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>

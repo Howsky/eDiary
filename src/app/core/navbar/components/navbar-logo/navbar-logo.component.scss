@@ -1,0 +1,51 @@
+@import 'mixins';
+@import 'variables';
+
+.mainLogo {
+  height: 100%;
+  width: min-content;
+
+  @include respond(xs) {
+    margin-left: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  h1 {
+    height: 100%;
+    font-weight: 300;
+    font-size: 2.1rem;
+    color: $color-primary;
+    min-width: 5rem;
+    display: flex;
+    align-items: center;
+
+    @include respond(s) {
+      min-width: min-content;
+    }
+
+    span {
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-right: 1rem;
+
+      @include respond(s) {
+        font-size: 4.5rem;
+      }
+    }
+  }
+
+  &-title {
+
+    @include respond(s) {
+      display: none;
+    }
+  }
+
+}

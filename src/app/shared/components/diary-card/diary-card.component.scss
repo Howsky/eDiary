@@ -1,0 +1,108 @@
+@import 'variables';
+@import 'mixins';
+
+.diaryCard {
+
+  height: 37.3rem;
+  width: 29.2rem;
+  position: relative;
+
+  margin: 2rem;
+
+  box-shadow: .2rem .2rem .6rem $color-black-transparent-1;
+
+  cursor: pointer;
+
+  &:hover {
+
+    & .diaryCard-background1 {
+      display: none;
+    }
+
+    & .diaryCard-background2 {
+      display: flex;
+    }
+
+  }
+
+  &-background1 {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient($color-black-transparent-1, $color-black-transparent-1);
+      z-index: 2;
+    }
+
+  }
+
+  &-background2 {
+    display: none;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient(transparent, transparent);
+      z-index: 2;
+    }
+
+  }
+
+  &-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: $color-grey-light-1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+    padding: 2rem;
+  }
+
+  &-author {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  &-title {
+    font-size: 2rem;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+
+  &-info {
+    font-size: 1.4;
+    font-weight: 400;
+  }
+
+
+}

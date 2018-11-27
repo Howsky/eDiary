@@ -1,0 +1,121 @@
+@import 'mixins';
+@import 'variables';
+
+.navbar {
+  height: 5.7rem;
+
+  background-color: $color-grey-light-1;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+
+  box-shadow: .2rem .2rem .6rem $color-black-transparent-1;
+
+  @include respond(xs) {
+    padding: 0 0.5rem;
+  }
+
+  &>* {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+  }
+}
+
+.mainNav {
+  flex: 0 0 20%;
+  display: flex;
+  align-items: stretch;
+
+  @include respond(xs) {
+    padding: 0;
+  }
+}
+
+.plusBtn {
+  color: $color-primary;
+  transform: translateY(-0.1rem);
+
+  @include respond(xs) {
+    margin-right: auto;
+  }
+}
+
+.appSettings {
+
+  justify-self: flex-end;
+  padding: 0;
+
+  @include respond(xxs) {
+    display: none !important;
+  }
+
+  &-btn {
+    &,
+    &:link,
+    &:visited {
+      display: inline-block;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transform: translateY(.2rem);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover,
+    &:active, {
+      outline: none;
+      .icon {
+        transition: fill .2s;
+        fill: $color-primary;
+      }
+    }
+
+
+    .icon-keyboard_arrow_down {
+      transform: translateX(-.3rem);
+    }
+    .icon {
+      fill: $color-grey-dark-2;
+    }
+  }
+}
+
+ediary-navbar-searcher {
+  flex-grow: 1;
+
+  @include respond(xs) {
+    display: none !important;
+  }
+}
+
+.search-mobile {
+  display: none !important;
+
+  @include respond(xs) {
+  display: flex !important;
+  }
+}
+
+ediary-navbar-dropdown {
+
+  @include respond(xxs) {
+    display: none !important;
+    align-items: center;
+  }
+}
+
+ediary-navbar-dropdown-mobile {
+  display: none !important;
+  @include respond(xxs) {
+    display: flex !important;
+    align-items: center;
+  }
+
+}

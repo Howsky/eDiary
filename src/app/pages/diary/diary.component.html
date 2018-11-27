@@ -1,0 +1,73 @@
+<div *ngIf="$entriesInDiary | async as entriesInDiary">
+    <div class="diary" *ngIf="$diary | async as diary">
+
+        <section class="diary-actions">
+      
+          <button class="btn btn-icon diary-btn" click="editDiary()">
+            <svg class="icon icon-editDiary">
+              <use xlink:href="assets/icons/newicons2.svg#icon-pen"></use>
+            </svg> <span>Edit</span>
+          </button>
+      
+          <button class="btn btn-icon diary-btn" click="editDiary()">
+            <svg class="icon icon-destroyDiary">
+              <use xlink:href="assets/icons/newicons.svg#icon-flame"></use>
+            </svg> <span>Burn</span>
+          </button>
+      
+        </section>
+      
+        <section class="diary-info">
+      
+          <div class="diary-cover">
+      
+            <img *ngIf="diary.cover" [src]="diary.cover" alt="diary cover" class="diary-cover">
+      
+          </div>
+      
+          <div class="diary-general">
+      
+            <h3 class="diary-title">
+              {{diary.title}}
+              <span class="diary-entryCounter">({{entriesInDiary.length}})</span>
+            </h3>
+      
+            <h4 class="diary-created">
+              since {{diary.startDate | date:'mediumDate'}} by {{author}}
+            </h4>
+      
+            <p class="diary-desc">
+              {{diary.description | shorten:200}}
+            </p>
+      
+          </div>
+      
+        </section>
+      
+        <section class="diary-sort">
+      
+          <a class="diary-sortFilter">
+            <span>All entries</span>
+          </a>
+          <a class="diary-sortFilter">Last week</a>
+          <a class="diary-sortFilter">Last month</a>
+      
+      
+        </section>
+      
+        <section class="diary-entries">
+      
+          <ul class="diary-entriesList">
+            <li>
+              <ediary-entry-card-create></ediary-entry-card-create>
+            </li>
+            <li *ngFor="let entry of entriesInDiary">
+              <ediary-entry-card [entry]="entry" [diaryTitle]="diary.title"></ediary-entry-card>
+            </li>
+          </ul>
+      
+        </section>
+      
+      
+      </div>
+</div>

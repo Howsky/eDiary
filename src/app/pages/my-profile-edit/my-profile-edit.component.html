@@ -1,0 +1,88 @@
+  <h3 class="pool-categoryHeader">
+    <span>Edit profile</span>
+  </h3>
+
+  <div class="myProfileEdit">
+
+    <section class="myProfileEdit-main">
+
+      <form class="myProfileEdit-form" [formGroup]="profileEditForm" (ngSubmit)="onProfileUpdate()">
+
+        <div class="myProfileEdit-formGroup">
+          <label for="nickname">nickname</label>
+          <input type="text" id="nickname" name="nickname" formControlName="nickname" disabled>
+        </div>
+
+        <div class="myProfileEdit-formGroup">
+          <label for="email">email</label>
+          <input type="email" id="email" name="email" formControlName="email" disabled>
+        </div>
+
+        <div class="myProfileEdit-formGroup">
+          <label for="title">title</label>
+          <input type="text" id="title" name="title" formControlName="title">
+        </div>
+
+        <div class="myProfileEdit-formGroup">
+          <label for="location">location</label>
+          <input type="text" id="location" name="location" formControlName="location">
+        </div>
+
+        <div class="myProfileEdit-formRow">
+
+          <div class="myProfileEdit-formGroup myProfileEdit-formGroup-short">
+            <label for="age">age</label>
+            <input type="text" id="age" name="age" formControlName="age">
+          </div>
+
+          <div class="myProfileEdit-formGroup myProfileEdit-formGroup-sex" *ngIf="selectedSex">
+            <label for="sex">sex</label>
+            <ediary-select #select [list]="sexList" [selected]="selectedSex" (sexSelected)="onSelect($event)"></ediary-select>
+          </div>
+
+        </div>
+
+        <div class="myProfileEdit-formGroup">
+          <label for="desc">profile description</label>
+          <textarea name="desc" id="" cols="30" rows="10" class="newDiary-desc" id="desc" formControlName="desc"></textarea>
+        </div>
+
+        <button type="submit" class="btn myProfileEdit-submitBtn">Update</button>
+
+      </form>
+
+      <div class="myProfileEdit-avUpdloader">
+
+        <ediary-img-uploader (fileSelected)="onFileSelected($event)"></ediary-img-uploader>
+
+      </div>
+
+    </section>
+
+    <section class="myProfileEdit-passwordChange">
+
+      <h4 class="pool-subcategoryHeader">
+        <span>Change password</span>
+      </h4>
+
+      <div class="myProfileEdit-formGroup">
+        <label for="oldPassword">password</label>
+        <input type="password" id="oldPassword" name="oldPassword">
+      </div>
+
+      <div class="myProfileEdit-formGroup">
+        <label for="newPassword">new password</label>
+        <input type="password" id="newPassword" name="newPassword">
+      </div>
+
+      <div class="myProfileEdit-formGroup">
+        <label for="reNewPassword">repeat new password</label>
+        <input type="password" id="reNewPassword" name="reNewPassword">
+      </div>
+
+      <button class="btn myProfileEdit-submitBtn">Change password</button>
+
+    </section>
+
+
+  </div>

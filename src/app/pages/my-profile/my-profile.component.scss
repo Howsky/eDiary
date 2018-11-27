@@ -1,0 +1,160 @@
+@import 'mixins';
+@import 'variables';
+
+.profile {
+
+  display: grid;
+
+  grid-template-rows: minmax(min-content, 5rem) minmax(min-content, 25rem) minmax(min-content, 5rem) minmax(min-content, 4rem);
+  grid-template-columns: 100%;
+  justify-content: center;
+
+  &-actions {
+
+    grid-row: 1 / span 1;
+    padding-right: 1rem;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+  }
+
+  &-info {
+
+    grid-row: 2 / span 1;
+
+    display: grid;
+
+    grid-template-columns: 1fr 3fr 1.5fr;
+    justify-content: space-evenly;
+
+    @include respond(s) {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+  }
+
+  &-av {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  &-general {
+
+    margin: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include respond(s) {
+      align-items: center;
+      text-align: center;
+    }
+
+  }
+
+  &-names {
+    font-size: 3rem;
+  }
+
+  &-nickname {
+    color: $color-primary;
+  }
+
+  &-title {
+    color: $color-text-grey-light-2;
+  }
+
+  &-userInfo {
+    font-size: 2rem;
+    color: $color-text-grey-light-2;
+  }
+
+  &-desc {
+    font-size: 2rem;
+    color: $color-grey-dark-1;
+
+    @include respond(s) {
+      width: 50%;
+    }
+
+    @include respond(xs) {
+      width: 70%;
+    }
+  }
+
+  &-counter {
+    margin: 3rem;
+    margin-right: 6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-counterItem {
+    margin: 0 2rem;
+    color: $color-grey-dark-1;
+    text-align: center;
+  }
+
+  &-counterItemNumber {
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+
+  &-counterItemDesc {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  &-regInfo {
+
+    grid-row: 3 / span 1;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+    color: $color-grey-light-2;
+    font-size: 1.6rem;
+    border-top: 0.1rem solid $color-grey-light-2;
+
+  }
+
+  &-diaries {
+
+    grid-row: 4 / span 1;
+
+    display: flex;
+    justify-content: center;
+
+    @include respond(s) {
+      justify-content: center;
+    }
+
+  }
+
+  &-diariesList {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    @include respond(s) {
+      justify-content: center;
+    }
+  }
+
+}

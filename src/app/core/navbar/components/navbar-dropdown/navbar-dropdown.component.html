@@ -1,0 +1,19 @@
+<div
+  *ngIf="user"
+  class="userNav"
+  [ngClass]="{ userNavMenuVis: userNavMenuVis === true }"
+  (mouseenter)="userNavMenuVis = true"
+  (mouseleave)="userNavMenuVis = false"
+>
+  <div class="userNav-profile">
+    <img [src]="user.avatar || av" alt="" class="avatar av av-small" /> <span class="nickname">{{ user.nickname }}</span>
+  </div>
+
+  <div class="dropdownMenu" *ngIf="userNavMenuVis">
+    <ul class="dropdownMenu-list">
+      <li class="dropdownMenu-item"><a class="dropdownMenu-link" (click)="onNavigate(['/my-profile'])">Profile</a></li>
+      <li class="dropdownMenu-item"><a class="dropdownMenu-link" (click)="onNavigate(['/privacy-settings'])">Privacy Settings</a></li>
+      <li class="dropdownMenu-item"><a class="dropdownMenu-link" (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</div>

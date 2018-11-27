@@ -1,0 +1,10 @@
+<div class="mainLink" [routerLinkActive]="['mainLink-active']" [routerLink]="[navLink.url]">
+  <span class="wrapper">
+    <span class="mainLink-desktop">{{navLink.label}}</span>
+    <span class="mainLink-mobile">
+      <svg class="icon icon-dashboard">
+        <use [attr.xlink:href]="icon"></use>
+      </svg>
+    </span>
+  </span>
+</div>

@@ -1,0 +1,60 @@
+<div class="entry">
+
+  <div class="entry-header">
+
+    <h2 class="entry-title">{{entry.title}}</h2>
+
+    <div class="entry-side">
+
+      <h3 class="entry-created">
+        <span>{{diary.title}}</span>
+        by <span>{{diary.author}}</span>, {{entry.postDate | date:'shortDate'}}
+      </h3>
+
+      <button class="btn btn-icon">
+        <svg class="icon icon-editProfile">
+          <use xlink:href="assets/icons/newicons.svg#icon-editProfile"></use>
+        </svg>
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="entry-main">
+
+    <div class="entry-mainPhoto">
+      <img *ngIf="entry.mainPhoto" alt="main photo" [src]="entry.mainPhoto">
+    </div>
+
+    {{entry.content}}
+
+  </div>
+
+  <div class="entry-footer">
+
+    <div class="entry-tags">
+      <span *ngFor="let tag of entry.tags" class="entry_tag">{{tag}} </span>
+    </div>
+
+    <div class="entry-share">
+      <button class="btn btn-icon">
+        <svg class="icon icon-editProfile">
+          <use xlink:href="assets/icons/newicons.svg#icon-editProfile"></use>
+        </svg>
+      </button>
+      <button class="btn btn-icon">
+        <svg class="icon icon-editProfile">
+          <use xlink:href="assets/icons/newicons.svg#icon-editProfile"></use>
+        </svg>
+      </button>
+      <button class="btn btn-icon">
+        <svg class="icon icon-editProfile">
+          <use xlink:href="assets/icons/newicons.svg#icon-editProfile"></use>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+</div>

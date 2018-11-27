@@ -1,0 +1,6 @@
+<div class="form-select" (clickOutside)="isVisible = false">
+  <div class="form-selectSelected" (click)="isVisible = !isVisible">{{selected}}</div>
+  <div *ngIf="isVisible" class="form-selectPopup">
+    <div *ngFor="let item of list" class="form-selectItem" (click)="selectItem(item)">{{item}}</div>
+  </div>
+</div>

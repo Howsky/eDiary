@@ -1,0 +1,6 @@
+<div class="container" *ngIf="$user | async as user">
+  <ediary-navbar [user]="user" [navlinks]="navlinks" [searchlink]="searchlink"></ediary-navbar>
+  <main class="pool">
+    <ng-content></ng-content>
+  </main>
+</div>

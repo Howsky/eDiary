@@ -1,0 +1,40 @@
+<div class="newEntry" >
+
+    <h3 class="pool-categoryHeader">
+      <span>New Entry</span>
+    </h3>
+
+    <div class="newEntry-main">
+
+      <form class="newEntry-form" [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+
+        <div class="newEntry-formCol3to1">
+
+          <input type="text" class="newEntry-title" placeholder="title" id="title" formControlName="title">
+
+          <button *ngIf="selectedDiary" type="button" class="newEntry-diaryShiftBtn btn" (click)="onDiaryShift()"><span>{{selectedDiary.title}}</span></button>
+
+        </div>
+
+        <textarea name="" id="" cols="30" rows="10" class="newEntry-desc" placeholder="content" id="content" formControlName="content"></textarea>
+
+        <input type="text" class="newEntry-tags" placeholder="tags: e.g. #myTag #theNextTag" id="tags" formControlName="tags">
+        <span *ngIf="entryForm.controls['tags'].errors?.pattern && entryForm.controls['tags'].touched" class="form-hint">Invalid tags</span>
+
+        <div class="newEntry-formCol1to1">
+
+          <div></div>
+
+          <button type="button" class="newEntry-resetBtn btn" (click)="onReset()">Retake</button>
+
+          <button type="submit" class="newEntry-submitBtn btn">Done</button>
+
+        </div>
+
+      </form>
+
+      <ediary-img-uploader (fileSelected)="onFileSelected($event)"></ediary-img-uploader>
+
+    </div>
+
+  </div>

@@ -1,0 +1,163 @@
+@import 'variables';
+@import 'mixins';
+
+.mobileNav {
+
+    z-index: 55;
+    position: absolute;
+    right: 0;
+    top: 5.7rem;
+    width: 20rem;
+    height: min-content;
+    display: none;
+    margin-left: auto;
+
+    @include respond(s) {
+        display: flex;
+    }
+
+    &-photo {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    &-name {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        cursor: pointer;
+        transition: color .2s;
+
+
+        .userNav-photo {
+            transition: transform .2s;
+            transform: scale(1.05);
+        }
+
+        .userNav-name {
+            color: $color-primary;
+        }
+
+    }
+
+    &:active,
+    &:focus {}
+
+    &-menu {
+
+        width: 100%;
+        height: min-content;
+        background-color: $color-grey-light-1;
+        display: grid;
+        z-index: 50;
+        box-shadow: .2rem .2rem .0rem $color-black-transparent-1;
+
+    }
+
+    &-list {
+        list-style: none;
+        align-self: start;
+
+    }
+
+    &-item {
+        text-align: center;
+        padding: 1rem 0;
+
+        &-user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 12rem;
+
+            &:hover {
+                color: $color-primary;
+
+                .userNav-photo {
+                    transition: transform .2s;
+                    transform: scale(1.08);
+                }
+
+            }
+
+            &,
+            &:link,
+            &:visited,
+            &:hover,
+            &:focus,
+            &:active {
+                outline: none;
+            }
+
+        }
+    }
+
+    &-link {
+
+        &,
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: $color-black;
+            text-decoration: none;
+            text-transform: uppercase;
+            transform: translateY(.3rem);
+
+            &:hover,
+            &:active {
+                color: $color-primary;
+            }
+        }
+    }
+}
+
+.navbar-mobile {
+
+    margin-left: auto;
+    overflow: visible;
+
+    display: none;
+
+    @include respond(xs) {
+        display: flex;
+    }
+
+
+}
+
+.mobileNav-burger {
+    width: min-content;
+    margin-left: auto;
+    display: none;
+    align-self: center;
+
+    @include respond(s) {
+        display: flex;
+    }
+}
+
+.mobileNav-burgerBtn {
+    background-color: transparent;
+    margin: auto;
+    transform: translateY(-0.2rem);
+
+    @include respond(xs) {
+        margin: auto 0;
+        padding: 0.5rem;
+    }
+
+}
+
+.icon-settings {
+    width: 3rem;
+    height: 3rem;
+}

@@ -1,0 +1,57 @@
+<div class="entryCard" (click)="openEntry(entry)">
+  <div class="entryCard-background" [ngStyle]="{'background-image': img}"></div>
+
+  <div class="entryCard-content" (mouseenter)="switchIn()" (mouseleave)="switchOut()">
+
+    <div class="entryCard-top">
+      <h4 class="entryCard-date">{{entry.postDate | date}}</h4>
+
+
+      <button class="btn btn-icon entry-starBtn" click="editDiary()">
+        <svg class="icon icon-star">
+          <use xlink:href="assets/icons/newicons.svg#icon-star"></use>
+        </svg>
+      </button>
+      
+    </div>
+
+    <div class="entryCard-title">
+      <h3>{{entry.title}}</h3>
+    </div>
+    <div class="entryCard-desc">
+      <p>{{entry.content | shorten:100}}</p>
+    </div>
+
+
+    <div class="entryCard-origin" *ngIf="!bright">
+      <p> {{entry.author}}: {{diaryTitle}}</p>
+    </div>
+
+    <div class="entryCard-actions" *ngIf="bright">
+      <ul class="socialActions">
+        <li class="socialActions-item">
+          <a class="socialActions-link">
+            <svg class="icon icon-facepool">
+              <use xlink:href="assets/icons/newicons.svg#icon-facepool"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="socialActions-item">
+          <a class="socialActions-link">
+            <svg class="icon icon-twitter">
+              <use xlink:href="assets/icons/newicons.svg#icon-twitter"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="socialActions-item">
+          <a class="socialActions-link">
+            <svg class="icon icon-link">
+              <use xlink:href="assets/icons/newicons.svg#icon-link"></use>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>

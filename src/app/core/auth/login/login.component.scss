@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'mixins';
+
+.regLink {
+    cursor: pointer;
+    font-size: 1.6rem;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: currentColor;
+    }
+}
+
+.passReminder {
+    align-self: flex-start;
+    margin-left: 2rem;
+}
+
+.login-btn {
+    margin-top: 4rem;
+}

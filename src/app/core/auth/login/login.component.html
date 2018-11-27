@@ -1,0 +1,41 @@
+
+
+<ediary-unauthorized-layout>
+
+  <div class="unauthorized-page">
+
+    <h1 class="app-title">
+      <span>⩔</span> eDiary</h1>
+  
+    <form class="unauthorized-page-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  
+      <img [src]="avatar" alt="your avatar" class="av av-big">
+  
+      <input class="form-input" [ngClass]="{'ng-invalid': userNotFound}" type="email" id="email" formControlName="email" placeholder="email"
+        autocomplete="email">
+      <span *ngIf="userNotFound" class="form-hint"> Account Does not exist </span>
+      <span *ngIf="!loginForm.controls.email.valid && loginForm.controls['email'].touched" class="form-hint"> Incorrect email </span>
+  
+      <input class="form-input" [ngClass]="{'ng-invalid': invalidPassForUser}" type="password" id="password" formControlName="password"
+        placeholder="password" autocomplete="password">
+      <span *ngIf="invalidPassForUser" class="form-hint"> Incorrect Password </span>
+      <span *ngIf="loginForm.value.password?.length < 6 && loginForm.value.password?.length > 0 && loginForm.controls['password'].touched" class="form-hint"> Password is too short </span>
+      <span *ngIf="loginForm.value.password?.length < 1 && loginForm.controls['password'].touched" class="form-hint"> Password is required </span>
+      <a class="unauthorized-page-forgotPass">Password reminder</a>
+  
+      <button type="submit" class="btn btn-primary login-btn">Login</button>
+  
+    </form>
+  
+    <div class="unauthorized-page-nav">
+  
+      <a class="unauthorized-page-link" (click)="gotoRegistration()">I need a new account!</a>
+  
+    </div>
+  
+    <p class="copyright">Copyright © by Hubert Szewczuk & Natalia Kowalczewska</p>
+  
+  
+  
+  </div>
+</ediary-unauthorized-layout>

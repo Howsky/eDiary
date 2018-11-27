@@ -1,0 +1,28 @@
+<header class="navbar">
+  <ediary-navbar-logo></ediary-navbar-logo>
+
+  <ediary-navbar-main-link *ngFor="let navlink of navlinks" [navLink]="navlink"></ediary-navbar-main-link>
+  <ediary-navbar-main-link class="search-mobile" *ngIf="searchlink" [navLink]="searchlink"></ediary-navbar-main-link>
+
+  <ediary-navbar-searcher></ediary-navbar-searcher>
+
+  <div class="plusBtn">
+    <button type="button" class="btn btn-icon" [routerLink]="['/new-entry']">
+      <svg class="icon icon-plus">
+        <use xlink:href="assets/icons/newicons.svg#icon-plus"></use>
+      </svg>
+    </button>
+  </div>
+
+  <ediary-navbar-dropdown [user]="user"></ediary-navbar-dropdown>
+  <ediary-navbar-dropdown-mobile [user]="user"></ediary-navbar-dropdown-mobile>
+
+  <div class="appSettings">
+    <button class="appSettings-btn" [routerLink]="['/app-settings']">
+      <svg class="icon icon-settings">
+        <use xlink:href="assets/icons/newicons.svg#icon-settings"></use>
+      </svg>
+    </button>
+  </div>
+
+</header>

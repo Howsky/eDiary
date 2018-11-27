@@ -1,0 +1,135 @@
+@import 'variables';
+@import 'mixins';
+
+.entryCard {
+
+    height: 37.3rem;
+    width: 29.2rem;
+    position: relative;
+
+    margin: 2rem;
+
+    box-shadow: .2rem .2rem .6rem $color-black-transparent-1;
+
+    cursor: pointer;
+
+    &:hover {
+        & .entryCard-background::after {
+            background-image: linear-gradient($color-primary-transparent-1, $color-primary-transparent-1);
+        }
+    }
+
+    &-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient($color-black-transparent-1, $color-black-transparent-1);
+            z-index: 2;
+        }
+    }
+
+    &-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        color: $color-grey-light-1;
+        text-align: center;
+        z-index: 1;
+        padding: 2rem;
+
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 6rem 8rem 16rem 6rem;
+
+    }
+
+    &-top {
+        grid-row: 1 / span 1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr
+    }
+
+    &-date {
+        grid-column: 2 / span 1;
+        font-weight: 400;
+        align-self: center;
+    }
+
+    &-addFavorite {
+        grid-column: 3 / span 1;
+        transform: translateY(-1rem);
+        color: $color-white;
+        cursor: not-allowed;
+    }
+
+    &-title {
+        grid-row: 2 / span 1;
+        font-weight: 600;
+    }
+
+    &-desc {
+        grid-row: 3 / span 1;
+        font-weight: 400;
+    }
+
+    &-origin {
+        grid-row: 4 / span 1;
+    }
+
+    &-actions {
+        grid-row: 4 / span 1;
+        height: 4rem;
+        width: 100%;
+    }
+
+}
+
+.socialActions {
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: not-allowed;
+
+    &-item {
+        cursor: not-allowed;
+    }
+
+    &-link {
+        text-decoration: none;
+        cursor: not-allowed;
+    }
+
+    .icon {
+        width: 3rem;
+        height: 3rem;
+        fill: $color-grey-light-1;
+        transform: translateY(.3rem);
+        cursor: not-allowed;
+    }
+
+}
+
+.icon-star {
+    width: 3rem;
+    height: 3rem;
+}

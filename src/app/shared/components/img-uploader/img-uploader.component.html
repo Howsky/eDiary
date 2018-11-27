@@ -1,0 +1,12 @@
+<div class="newDiary-uploader imgUploader">
+
+  <input type="file" style="display: none" (change)="onFileSelected($event)" #fileInput>
+
+  <div *ngIf="!previewLoaded" class="imgUploader-area">Diary Cover</div>
+  <div *ngIf="previewLoaded" class="imgUploader-area">
+    <img [src]="image">
+  </div>
+
+  <button class="imgUploader-submitBtn btn" (click)="fileInput.click()">Upload</button>
+
+</div>

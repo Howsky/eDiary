@@ -1,0 +1,41 @@
+<div class="newDiary">
+
+  <h3 class="pool-categoryHeader">
+    <span>New Diary</span>
+  </h3>
+
+  <div class="newDiary-main">
+
+    <form class="newDiary-form" [formGroup]="diaryForm" (ngSubmit)="onSubmit()">
+
+      <div class="newDiary-formCol3to1">
+
+        <input type="text" class="newDiary-title" placeholder="title" id="title" formControlName="title">
+
+        <button *ngIf="entryVisibility" (click)="entryVisibility = false" type="button" class="newDiary-visibilityBtn btn">Public</button>
+        <button *ngIf="!entryVisibility" (click)="entryVisibility = true" type="button" class="newDiary-visibilityBtn newDiary-visibilityBtn-private btn">Private</button>
+
+      </div>
+
+      <textarea name="" id="" cols="30" rows="10" class="newDiary-desc" placeholder="description" id="desc" formControlName="desc"></textarea>
+
+      <input type="text" class="newDiary-tags" placeholder="tags: e.g. #myTag #theNextTag" id="tags" formControlName="tags">
+      <span *ngIf="diaryForm.controls['tags'].errors?.pattern && diaryForm.controls['tags'].touched" class="form-hint">Invalid tags</span>
+
+      <div class="newDiary-formCol1to1">
+
+        <div></div>
+
+        <button type="button" class="newDiary-resetBtn btn" (click)="onReset()">Retake</button>
+
+        <button type="submit" class="newDiary-submitBtn btn">Done</button>
+
+      </div>
+
+    </form>
+
+    <ediary-img-uploader (fileSelected)="onFileSelected($event)"></ediary-img-uploader>
+
+  </div>
+
+</div>

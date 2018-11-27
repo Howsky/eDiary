@@ -1,0 +1,58 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint==xxs {
+    @media only screen and (max-width: 480px) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==xs {
+    @media only screen and (max-width: 700px) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==s {
+    @media only screen and (max-width: 1000px) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==m {
+    @media only screen and (max-width: 1200px) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==l {
+    @media only screen and (max-width: 1400px) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==xl {
+    @media only screen and (max-width: 1800px) {
+      @content
+    }
+    ; 
+  }
+
+}
+
+@mixin input() {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: black;
+    padding: .7rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    margin: 1rem;
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+

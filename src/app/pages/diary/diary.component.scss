@@ -1,0 +1,172 @@
+@import 'variables';
+@import 'mixins'; 
+
+.diary {
+
+  display: grid;
+
+  grid-template-rows: 5rem 25rem 10rem min-content;
+  grid-template-columns: 100%;
+  justify-content: center;
+  margin-top: -3rem;
+
+  @include respond(xs) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: flex-start;
+  }
+
+
+  &-actions {
+    grid-row: 1 / span 1;
+    padding-right: 1rem;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    @include respond(xs) {
+     margin: 3rem 0;
+    }
+
+  }
+
+  &-btn {
+    margin: 1rem;
+    cursor: not-allowed;
+
+    span {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: $color-grey-dark-1;
+      font-style: italic;
+    }
+
+    .icon {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    @include respond(s) {
+      margin: 3rem;
+    }
+
+
+  }
+
+  &-info {
+    grid-row: 2 / span 1;
+
+    display: grid;
+
+    grid-template-columns: 1fr 5fr;
+    justify-content: center;
+
+    @include respond(xs) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: flex-start;
+    }
+  }
+
+  &-cover {
+    margin: auto;
+    width: 18rem;
+    height: 18rem;
+
+    border-radius: .3rem;
+    box-shadow: .2rem .2rem .6rem $color-black-transparent-1;
+  }
+
+  &-general {
+    margin: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include respond(xs) {
+     text-align: center;
+     align-items: stretch;
+     align-content: space-around;
+
+    }
+
+    & > * {
+      margin: 1rem;
+    }
+  }
+
+  &-title {
+    font-size: 3rem;
+    font-weight: 400;
+    color: $color-primary;
+  }
+
+  &-entryCounter {
+    color: $color-grey-light-2;
+  }
+
+  &-created {
+    font-size: 2rem;
+    font-weight: 400;
+    color: $color-grey-light-2;
+  }
+
+  &-desc {
+    font-size: 2rem;
+    font-style: italic;
+    color: $color-grey-dark-1;
+  }
+
+  &-sort {
+    margin: 3rem;
+    padding: 1rem 0;
+    border-top: 0.1rem solid $color-grey-light-2;
+  }
+
+  &-sortFilter {
+    color: $color-grey-light-2;
+    font-size: 1.8rem;
+    cursor: not-allowed;
+    margin: 3rem;
+
+    span {
+      font-weight: 500;
+    }
+
+    @include respond(s) {
+      margin: 1rem;
+    }
+
+  }
+
+
+  &-entries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @include respond(xs) {
+      align-items: center;
+      align-content: center;
+    }
+
+  }
+
+  &-entriesList {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    @include respond(xs) {
+      flex-direction: column;
+
+    }
+  }
+
+}

@@ -1,0 +1,20 @@
+<h3 class="pool-categoryHeader">
+  <span>My Diaries</span>
+</h3>
+
+<section class="myDiaries">
+
+  <ul class="myDiaries-diariesList">
+    <li *ngFor="let diary of $diaries | async; let i = index">
+      <ediary-diary-card [diary]="diary" [entriesNum]="entriesInDiary[i]" (click)="openDiary(diary.key)"></ediary-diary-card>
+    </li>
+    <li class="myDiaries-item">
+      <ediary-diary-card-create *ngIf="numOfDiaries < 3"></ediary-diary-card-create>
+    </li>
+  </ul>
+
+</section>
+
+<!-- <div #loading>
+  Loading stuff...
+</div> -->

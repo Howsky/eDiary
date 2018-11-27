@@ -1,0 +1,91 @@
+@import 'mixins';
+@import 'variables';
+
+.entry {
+
+  &-header {
+    font-size: 1.8rem;
+    color: $color-grey-light-2;
+    border-bottom: .1rem solid $color-grey-light-2;
+    font-weight: 300;
+    margin-bottom: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+  }
+
+  &-title {
+    color: $color-primary;
+    margin-left: 1.5rem;
+    font-weight: 300;
+    font-size: 3.8rem;
+  }
+
+  &-side {
+    justify-self: end;
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.8rem;
+
+    @include respond(m) {
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      align-self: center;
+    }
+  }
+
+  &-created {
+    margin-right: 2rem;
+    font-weight: 400;
+  }
+
+  &-main {
+    min-height: 80rem;
+
+    @include respond(s) {
+      min-height: 40rem;
+    }
+  }
+
+  &-mainPhoto {
+    float: left;
+    border: .1rem solid $color-grey-light-2;
+    width: 30rem;
+    height: 30rem;
+    margin: 0 3rem 3rem 0;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+    @include respond(s) {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+
+
+
+  &-footer {
+    border-top: .1rem solid $color-grey-light-2;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    color: $color-grey-light-2;
+    justify-content: space-between;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+  }
+
+  &-starBtn {
+    width: 4rem;
+    height: 4rem;
+    cursor: not-allowed;
+  }
+
+}

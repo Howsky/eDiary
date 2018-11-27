@@ -1,0 +1,44 @@
+@import 'variables';
+@import 'mixins';
+
+.searchProfileResult {
+
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 1fr 3fr;
+
+  margin: 2rem;
+
+  height: 10rem;
+  width: 40rem;
+
+  &-av {
+    height: 100%;
+    width: 100%;
+
+    border-radius: .3rem;
+    box-shadow: .2rem .2rem .6rem $color-black-transparent-1;
+
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    color: $color-grey-light-2;
+    font-size: 1.8rem;
+    margin-left: 1.5rem;
+  }
+
+  &-nickname {
+    color: $color-primary;
+    font-size: 2rem;
+  }
+
+  &-regDate {}
+
+  &-counter {}
+
+}

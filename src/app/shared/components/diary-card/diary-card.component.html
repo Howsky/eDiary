@@ -1,0 +1,15 @@
+<div class="diaryCard" *ngIf="img">
+  <div class="diaryCard-background1" [ngStyle]="{'background-image': img}"></div>
+  <div class="diaryCard-background2" [ngStyle]="{'background-image': img}"></div>
+  <div class="diaryCard-content">
+    <h4 class="diaryCard-author">{{diary.author}}</h4>
+    <h3 class="diaryCard-title">{{diary.title}}
+      <span class="diaryCard-entryCounter">({{entriesNum}})</span>
+    </h3>
+    <div class="diaryCard-info">
+      <p class="diaryCard-startDate">created {{startDate | amTimeAgo}}</p>
+      <p *ngIf="latestEntryDate" class="diaryCard-latestEntry">recent entry {{latestEntryDate | amTimeAgo}}</p>
+      <p *ngIf="!latestEntryDate" class="diaryCard-latestEntry">no entries</p>
+    </div>
+  </div>
+</div>

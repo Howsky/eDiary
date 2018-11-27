@@ -1,0 +1,88 @@
+<div class="profile">
+
+  <section class="profile-actions">
+
+    <button class="btn btn-icon" (click)="gotoEditProfile()">
+      <svg class="icon icon-editProfile">
+        <use xlink:href="assets/icons/newicons2.svg#icon-pen"></use>
+      </svg>
+    </button>
+
+  </section>
+
+  <section class="profile-info">
+
+    <div class="profile-av">
+
+      <img [src]="user.avatar || av" alt="avatar" class="av av-big">
+
+    </div>
+
+    <div class="profile-general">
+
+      <p class="profile-names">
+        <span class="profile-nickname">
+          {{user.nickname}}
+        </span>
+        <span class="profile-title">
+          {{user.title}}
+        </span>
+      </p>
+
+      <p class="profile-userInfo">
+        {{user.age}} | {{user.sex}} | {{user.location}}
+      </p>
+
+      <p class="profile-desc">
+        {{user.desc | shorten:160}}
+      </p>
+
+    </div>
+
+    <div class="profile-counter">
+
+      <div class="profile-counterItem">
+        <p class="profile-counterItemNumber">
+          {{entriesNum}}
+        </p>
+        <p class="profile-counterItemDesc">
+          posts
+        </p>
+      </div>
+
+      <div class="profile-counterItem">
+        <p class="profile-counterItemNumber">
+          {{diariesNum}}
+        </p>
+        <p class="profile-counterItemDesc">
+          diaries
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="profile-regInfo">
+
+    <div class="profile-startDate">
+
+      <p>Active since: {{user.regDate | date:'shortDate'}}</p>
+
+    </div>
+
+  </section>
+
+  <section class="profile-diaries">
+
+    <ul class="profile-diariesList">
+        <li *ngFor="let diary of diaries; let i = index">
+        <ediary-diary-card [diary]="diary" [entriesNum]="entriesInDiary[i]" (click)="openDiary(diary.key)"></ediary-diary-card>
+      </li>
+    </ul>
+
+  </section>
+
+
+
+</div>

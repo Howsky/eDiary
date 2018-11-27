@@ -1,0 +1,107 @@
+@import 'mixins';
+@import 'variables';
+
+.myProfileEdit {
+
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+
+  &-main {
+
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3rem;
+    justify-content: space-between;
+
+    @include respond(s) {
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+    }
+
+  }
+
+  &-passwordChange {
+    padding: 3rem;
+    width: 30%;
+
+    @include respond(s) {
+      width: 100%;
+    }
+  }
+
+  &-submitBtn {
+    width: 30rem;
+    margin: 4rem;
+
+  }
+
+  &-form {
+
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+
+    @include respond(s) {
+      width: 100%;
+      order: 2;
+    }
+
+  }
+
+  &-formGroup {
+
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+
+    label {
+      color: $color-grey-dark-1;
+      font-size: 1.6rem;
+
+    }
+
+    input, textarea{
+      border-radius: .5rem;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: .5rem;
+      font-size: 1.4rem;
+      font-family: inherit;
+      color: $color-grey-dark-2;
+
+      &:focus {
+        outline: none;
+      }
+
+    }
+
+    &-short {
+      input, textarea {
+        width: 30%;
+      }
+    }
+
+  }
+
+  &-formRow {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space space-between;
+
+  }
+
+  &-avUpdloader {
+    @include respond(s) {
+      order: 1;
+    }
+  }
+
+}

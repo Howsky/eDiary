@@ -1,0 +1,41 @@
+<ediary-unauthorized-layout>
+  <div class="unauthorized-page">
+
+    <h1 class="app-title">
+      <span>⩔</span> eDiary</h1>
+    <br><br>
+
+    <form class="unauthorized-page-form" [formGroup]="regForm" (ngSubmit)="onSubmit()">
+
+      <input class="form-input" type="text" id="nickname" formControlName="nickname" autocomplete="nickname" placeholder="nickname">
+      <span *ngIf="regForm.hasError(['required', 'nickname']) && regForm.controls['nickname'].touched" class="form-hint"> Incorrect Nickname </span>
+      <span *ngIf="regForm.value.nickname?.length < 1 && regForm.controls['nickname'].touched" class="form-hint"> Nickname is required </span>
+
+      <input class="form-input" type="email" id="email" formControlName="email" autocomplete="email" placeholder="email">
+      <span *ngIf="!regForm.controls.email.valid && regForm.controls['email'].touched" class="form-hint"> Incorrect email </span>
+
+      <input class="form-input" [ngClass]="{'ng-invalid': regForm.hasError('equal') && regForm.controls['rePass'].touched}" type="password" id="password" formControlName="password" autocomplete="password" placeholder="password">
+      <span *ngIf="regForm.hasError(['required', 'password']) && regForm.controls['password'].touched" class="form-hint"> Incorrect Password </span>
+      <span *ngIf="regForm.value.password?.length < 6 && regForm.controls['password'].touched" class="form-hint"> Password is too short </span>
+
+      <input class="form-input" [ngClass]="{'ng-invalid': regForm.hasError('equal') && regForm.controls['rePass'].touched}" type="password" id="rePass" formControlName="rePass" autocomplete="repeat-password" placeholder="repeat password">
+      <span *ngIf="regForm.hasError(['required', 'rePass']) && regForm.controls['rePass'].touched" class="form-hint"> Incorrect Password </span>
+      <span *ngIf="regForm.hasError('equal') && regForm.controls['rePass'].touched" class="form-hint"> Passwords doesn't match </span>
+
+      <span *ngIf="userExists" class="form-hint"> Account for specifield mail is already existing </span>
+
+      <button class="btn btn-primary register-submitBtn">Register</button>
+
+    </form>
+
+    <div class="unauthorized-page-nav">
+
+      <a class="unauthorized-page-link" (click)="gotoLogin()">Just log me in</a>
+
+    </div>
+
+    <p class="copyright">Copyright © by Hubert Szewczuk & Natalia Kowalczewska</p>
+
+  </div>
+
+</ediary-unauthorized-layout>
